@@ -1,9 +1,14 @@
+import java.util.ArrayList;
 
 public class ExpenseTracker {
-    // TODO: Add an ArrayList to store Expense objects
+    // TODO: Declare an ArrayList to store Expense objects
     // This will be the main collection that holds all user expenses
+    ArrayList<Expense> expenses;
     
-    // TODO: Constructor - initialize the collection for storing expenses
+    // TODO: Constructor - initialize the ArrayList for storing expenses
+    public ExpenseTracker() {
+        expenses = new ArrayList<Expense>();
+    }
     
     // TODO: addExpense() method
     // - Takes an Expense object as a parameter
