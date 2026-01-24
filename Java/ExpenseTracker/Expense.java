@@ -77,9 +77,11 @@ public class Expense {
             this.date = newDate;
         } catch (DateTimeParseException e) {
             System.out.println("Invalid date format. Please use MM/dd/yyyy.");
+            System.out.println("Ensure two digits for month and day. For example, 01/01/2026.");
         }
     }
 
+    @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         String formattedDate = this.date.format(formatter);
