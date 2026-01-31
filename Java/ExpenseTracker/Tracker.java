@@ -21,7 +21,7 @@ public class Tracker {
     }
 
     // removeExpense() method
-    // - Takes an identifier (index, description, or date) as parameter
+    // - Takes an identifier (expenseID) as parameter
     // - Removes the expense from the collection
     public void removeExpense(String expenseID) {
         this.expenses.removeIf(expense -> expense.getExpenseID().equals(expenseID));
