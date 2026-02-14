@@ -5,11 +5,12 @@ public class Main {
         Expense expense2 = new Expense("PC", 1299.99f, "Technology", "01/22/2026");
         Expense expense3 = new Expense("Flour", 8.99f, "Baking", "01/16/2026");
 
-        Tracker tracker = new Tracker();
+        ExpenseTracker tracker = new ExpenseTracker();
         tracker.addExpense(expense1);
         tracker.addExpense(expense2);
         tracker.addExpense(expense3);
 
+        tracker.displayTotalExpenses();
         tracker.displayExpensesByCategory("Baking");
     }
 }

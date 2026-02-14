@@ -37,13 +37,37 @@ public class ExpenseTracker {
 
     // TODO: displayExpenses() method
     // - Display all tracked expenses
+    public void displayExpenses() {
+        for (Expense expense : this.expenses) {
+            System.out.println(expense);
+        }
+    }
     
     // TODO: displayTotalExpenses() method
     // - Calculates and displays the sum of all expense amounts
+    public void displayTotalExpenses() {
+        // getAmount() for expense object
+        // we have this.expenses -> [expense1, expense2, expense3]
+        float totalAmount = 0; // 4.99 + 1299.99 + 8.99
+        for (Expense expense : this.expenses) {
+            // totalAmount = totalAmount + expense.getAmount();
+            totalAmount += expense.getAmount();
+        }
+        System.out.println("Your total expenses are: $" + totalAmount);
+    }
     
     // TODO: displayExpensesByCategory() method
     // - Takes a category as parameter
     // - Displays filtered expenses by that category
+    public void displayExpensesByCategory(String category) {
+        // we have this.expenses -> [expense1, expense2, expense3]
+        for (Expense expense : this.expenses) {
+            String c = expense.getCategory();
+            if (c.equals(category)) {
+                System.out.println(expense);
+            }
+        }
+    }
     
     // TODO: displayExpensesByDateRange() method
     // - Takes start and end dates as parameters
