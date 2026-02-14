@@ -6,6 +6,7 @@ screen.bgcolor("teal")
 
 tortoise = turtle.Turtle()
 tortoise.shape("turtle")
+tortoise.speed(0)
 tortoise.penup()
 
 treasure = turtle.Turtle()
@@ -42,4 +43,18 @@ screen.onkey(left, "Left")
 screen.onkey(up, "Up")
 screen.onkey(down, "Down")
 
-screen.mainloop()
+# screen.mainloop()
+
+while True:
+    screen.update()
+
+    # tortoise collects treasure
+    if tortoise.distance(treasure) <= 22:
+        # want to move the treasure
+        treasure.goto(random.randint(-250, 250), random.randint(-250, 250))
+        # randomize its color
+        colors = ["lightpink", "lightblue", "magenta", "lightgreen"]
+        treasure.color(random.choice(colors))
+        # randomize shape
+        shapes = ["turtle", "circle", "square", "triangle"]
+        treasure.shape(random.choice(shapes))
