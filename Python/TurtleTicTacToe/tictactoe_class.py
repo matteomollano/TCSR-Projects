@@ -3,17 +3,35 @@ import turtle
 screen = turtle.Screen()
 screen.bgcolor("plum")
 
+current_player = "X"
+game_over = False
+
+# keep track of each square's state
+squares = []
+
+# board is empty originally
+board = [None, None, None,
+         None, None, None,
+         None, None, None
+]
+# Indices:
+# 0 1 2
+# 3 4 5
+# 6 7 8
+
+# used for drawing X and O
 drawer = turtle.Turtle()
 drawer.hideturtle()
 drawer.penup()
 drawer.speed(0)
 
-current_player = "X"
-
-board = []
-# 0 1 2
-# 3 4 5
-# 6 7 8
+# used to display current player
+writer = turtle.Turtle()
+writer.hideturtle()
+writer.penup()
+writer.speed(0)
+writer.goto(-300, 270)
+writer.write(f"Player 1's turn: {current_player}", font=("Arial", 20, "bold"))
 
 def check_winner():
     win_conditions = [
@@ -42,26 +60,46 @@ def draw_symbol(x, y, symbol):
         drawer.write("O", align="center", font=("Arial", 60, "bold"))
     
 def handle_click(square):
-    global current_player, board
+    global current_player, game_over
     
-    if square["taken"]:
+    # if square is already taken
+    # if game is over
+    # don't do anything (return)
+    if square["taken"] or game_over:
         return
         
     # draw X or O in the center
     draw_symbol(square["x"], square["y"], current_player)
     square["taken"] = True
     
+    # put current player symbol (X or O) into list position that matches board spot
+    index = squares.index(square)
+    board[index] = current_player
+    
     result = check_winner()
     
     if result:
-        pass
-        # need to complete this part
+        game_over = True
+        writer.clear()
+        
+        if result == "Win":
+            writer.write(f"{current_player} wins!", font=("Arial", 20, "bold"))
+        else: # draw
+            writer.write("It's a draw!", font=("Arial", 20, "bold"))
+
+        return
     
+    # switch turn
     if current_player == "X":
         current_player = "O"
+        writer.clear()
+        writer.write(f"Player 2's turn: {current_player}", font=("Arial", 20, "bold"))
     else:
         current_player = "X"
+        writer.clear()
+        writer.write(f"Player 1's turn: {current_player}", font=("Arial", 20, "bold"))
 
+# board creation
 for row in [150, 0, -150]: # row
     for col in [-150, 0, 150]: # column
         button = turtle.Turtle()
@@ -79,6 +117,8 @@ for row in [150, 0, -150]: # row
             "y": row,
             "taken": False
         }
+        # append to squares list
+        squares.append(square)
         
         # attach click handler
         button.onclick(lambda x, y, s=square: handle_click(s))
