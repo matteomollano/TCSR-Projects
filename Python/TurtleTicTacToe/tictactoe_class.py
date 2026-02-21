@@ -10,10 +10,7 @@ game_over = False
 squares = []
 
 # board is empty originally
-board = [None, None, None,
-         None, None, None,
-         None, None, None
-]
+board = [None] * 9
 # Indices:
 # 0 1 2
 # 3 4 5
@@ -33,6 +30,7 @@ writer.speed(0)
 writer.goto(-300, 270)
 writer.write(f"Player 1's turn: {current_player}", font=("Arial", 20, "bold"))
 
+# function to check for game winner
 def check_winner():
     win_conditions = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], # horizontal
@@ -48,7 +46,8 @@ def check_winner():
         return "Draw"
 
     return None
-    
+   
+# function to draw X or O in square 
 def draw_symbol(x, y, symbol):
     drawer.goto(x, y - 35)
 
@@ -58,7 +57,8 @@ def draw_symbol(x, y, symbol):
     else:
         drawer.color("black")
         drawer.write("O", align="center", font=("Arial", 60, "bold"))
-    
+
+# function that runs when a square is clicked
 def handle_click(square):
     global current_player, game_over
     
@@ -90,13 +90,12 @@ def handle_click(square):
         return
     
     # switch turn
+    writer.clear()
     if current_player == "X":
         current_player = "O"
-        writer.clear()
         writer.write(f"Player 2's turn: {current_player}", font=("Arial", 20, "bold"))
     else:
         current_player = "X"
-        writer.clear()
         writer.write(f"Player 1's turn: {current_player}", font=("Arial", 20, "bold"))
 
 # board creation
