@@ -16,6 +16,14 @@ treasure.penup()
 treasure.speed(0)
 treasure.goto(random.randint(-250, 250), random.randint(-250, 250))
 
+score = 0
+writer = turtle.Turtle()
+writer.hideturtle()
+writer.penup()
+writer.speed(0)
+writer.goto(0, 280)
+writer.write("Score: 0", align="center", font=("Arial", 30, "bold"))
+
 # 0 = right
 # 90 = up
 # 180 = left
@@ -47,14 +55,24 @@ screen.onkey(down, "Down")
 
 while True:
     screen.update()
+    
+    # for debugging
+    # print(tortoise.distance(treasure))
 
     # tortoise collects treasure
     if tortoise.distance(treasure) <= 22:
         # want to move the treasure
         treasure.goto(random.randint(-250, 250), random.randint(-250, 250))
+        
         # randomize its color
         colors = ["lightpink", "lightblue", "magenta", "lightgreen"]
         treasure.color(random.choice(colors))
+        
         # randomize shape
         shapes = ["turtle", "circle", "square", "triangle"]
         treasure.shape(random.choice(shapes))
+        
+        # update score
+        score = score + 1
+        writer.clear()
+        writer.write(score, align="center", font=("Arial", 30, "bold"))
