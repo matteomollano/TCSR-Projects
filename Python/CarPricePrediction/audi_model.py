@@ -1,7 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import numpy as np
 pd.set_option("display.max_columns", None)
 
@@ -14,7 +13,7 @@ y = df['price'] # y is target
 
 # One-hot encode categorical variables
 X = pd.get_dummies(X, columns=['transmission', 'fuelType'], drop_first=False, dtype=int)
-print(X.head())
+# print(X.head())
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=42)
 
@@ -28,4 +27,22 @@ model = RandomForestRegressor(
 
 model.fit(X_train, y_train)
 
+# make predictions on train
+print("\nPredictions on train data:")
 y_pred_train = model.predict(X_train)
+y_train = np.array(y_train)
+
+for i in range(10):
+    actual = y_train[i]
+    pred = y_pred_train[i]
+    print(f"${actual} vs ${pred:.2f}")
+
+# make predictions on test
+print("\nPredictions on test data: ")
+y_pred_test = model.predict(X_test)
+y_test = np.array(y_test)
+
+for i in range(10):
+    actual = y_test[i]
+    pred = y_pred_test[i]
+    print(f"${actual} vs ${pred:.2f}")
