@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 /*
@@ -72,4 +75,23 @@ public class ExpenseTracker {
     // TODO: displayExpensesByDateRange() method
     // - Takes start and end dates as parameters
     // - Displays expenses within that date range
+    public void displayExpensesByDateRange(String startDate, String endDate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        try {
+            LocalDate start = LocalDate.parse(startDate, formatter);
+            LocalDate end = LocalDate.parse(endDate, formatter);
+
+            // loop over each expense
+            for (Expense expense : this.expenses) {
+                // check if that expense was made within the date range
+                LocalDate expenseDate = expense.getDate();
+                if (!expenseDate.isBefore(start) && !expenseDate.isAfter(end)) {
+                    System.out.println(expense);
+                }
+            }
+
+        } catch (DateTimeParseException e) {
+            System.out.println("Invalid date format. Please use MM/dd/yyyy.");
+        }
+    }
 }
