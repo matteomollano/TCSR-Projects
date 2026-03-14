@@ -32,3 +32,6 @@
 **/*.jpg
 **/*.jpeg
 **/*.gif
+
+# Ignore audio files
+**/*.wav
