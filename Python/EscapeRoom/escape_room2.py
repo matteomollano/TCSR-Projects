@@ -31,5 +31,26 @@ rooms = {
 current_room = rooms["basement"]
 
 description = current_room["description"]
-choices = current_room["choices"].keys()
-print(choices)
+print(description)
+
+choices = list(current_room["choices"].keys())
+
+print("What do you do? ")
+for i in range(4):
+    print(f"{i+1}. {choices[i]}")
+
+choice = input("Enter your choice: ")
+
+# validate user input
+while choice not in ["1", "2", "3", "4"]:
+    print("Your choice must be 1, 2, 3, or 4 only.")
+    choice = input("Enter your choice: ")
+
+if choice == "1":
+    pass
+elif choice == "2":
+    pass
+elif choice == "3":
+    pass
+else: #4
+    pass
