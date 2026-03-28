@@ -1,16 +1,54 @@
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Expense expense1 = new Expense("Cookies", 4.99f, "Baking", "01/03/2026");
-        Expense expense2 = new Expense("PC", 1299.99f, "Technology", "01/22/2026");
-        Expense expense3 = new Expense("Flour", 8.99f, "Baking", "01/16/2026");
 
-        ExpenseTracker tracker = new ExpenseTracker();
-        tracker.addExpense(expense1);
-        tracker.addExpense(expense2);
-        tracker.addExpense(expense3);
+        Tracker tracker = new Tracker();
+        Scanner sc = new Scanner(System.in);
 
-        tracker.displayTotalExpenses();
-        tracker.displayExpensesByCategory("Baking");
+        while (true) {
+            System.out.println("""
+            1. Add a new expense
+            2. Delete an expense
+            3. Display all expenses and total
+            4. Display by category
+            5. Display by date range
+            """);
+
+            String choice = sc.nextLine();
+
+            // make sure choice input is valid (1, 2, 3, 4, or 5)
+            // will explore contains() method with ArrayList next time
+            while (
+                !choice.equals("1") &&
+                !choice.equals("2") &&
+                !choice.equals("3") &&
+                !choice.equals("4") &&
+                !choice.equals("5")
+            ) {
+                System.out.println("You must enter 1, 2, 3, 4, or 5 only.");
+                choice = sc.nextLine();
+            }
+
+            // at this point, choice input should be valid
+            if (choice.equals("1")) {
+                System.out.println("Enter description: ");
+                String expenseName = sc.nextLine();
+
+                System.out.println("Enter amount ($): ");
+                float expenseAmount = sc.nextFloat();
+
+                System.out.println("Enter category: ");
+                String expenseCategory = sc.nextLine();
+
+                System.out.println("Enter date of expense (MM/DD/YYYY): ");
+                String expenseDate = sc.nextLine();
+
+                Expense newExpense = new Expense(expenseName, expenseAmount, expenseCategory, expenseDate);
+                tracker.addExpense(newExpense);
+            }
+        }
+
+        // need to use sc.close() when rest of code is finished
     }
 }
