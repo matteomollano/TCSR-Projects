@@ -35,14 +35,14 @@ public class Tracker {
         }
     }
 
-    // displayTotalExpenses() method
-    // - Calculates and displays the sum of all expense amounts
-    public void displayTotalExpenses() {
+    // displayTotalCost() method
+    // - Calculates and displays the total expense cost
+    public void displayTotalCost() {
         float total = 0;
         for (Expense e: this.expenses) {
             total += e.getAmount();
         }
-        System.out.println("Your total expenses are: $" + total);
+        System.out.printf("Your total cost is: $%.2f%n", total);
     }
 
     // displayExpensesByCategory() method
