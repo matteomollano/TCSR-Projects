@@ -1,12 +1,11 @@
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 
         Tracker tracker = new Tracker();
-        Scanner sc = new Scanner(System.in);
 
         System.out.println("=========================");
         System.out.println("|    Expense Tracker    |");
@@ -22,8 +21,7 @@ public class Main {
             6. Exit
             """);
 
-            System.out.print("Your choice here: ");
-            String choice = sc.nextLine();
+            String choice = UserInput.input("Your choice here: ");
 
             // make sure choice input is valid (1, 2, 3, 4, 5, or 6)
             // will explore contains() method with ArrayList next time
@@ -31,7 +29,7 @@ public class Main {
 
             while (!options.contains(choice)) {
                 System.out.println("You must enter 1, 2, 3, 4, 5, or 6 only.");
-                choice = sc.nextLine();
+                choice = UserInput.input("");
             }
 
             // at this point, choice input should be valid
@@ -40,18 +38,13 @@ public class Main {
                 System.out.println("|   Add Item   |");
                 System.out.println("================");
 
-                System.out.print("Enter item description: ");
-                String expenseName = sc.nextLine();
+                String expenseName = UserInput.input("Enter item description: ");
 
-                System.out.print("Enter amount: $");
-                float expenseAmount = sc.nextFloat();
-                sc.nextLine(); // consume the leftover newline
+                float expenseAmount = UserInput.amountInput("Enter amount: $");
+            
+                String expenseCategory = UserInput.input("Enter item category: ");
 
-                System.out.print("Enter item category: ");
-                String expenseCategory = sc.nextLine();
-
-                System.out.print("Enter purchase date (MM/DD/YYYY): ");
-                String expenseDate = sc.nextLine();
+                String expenseDate = UserInput.dateInput("Enter purchase date (MM/DD/YYYY): ");
 
                 Expense newExpense = new Expense(expenseName, expenseAmount, expenseCategory, expenseDate);
                 tracker.addExpense(newExpense);
@@ -61,39 +54,54 @@ public class Main {
                 System.out.println("|   Delete Item   |");
                 System.out.println("===================");
                 
-                System.out.print("Enter expenseID to remove: ");
-                String expenseID = sc.nextLine();
-
-                tracker.removeExpense(expenseID);
+                String expenseID = UserInput.input("Enter expenseID to remove: ");
+                ArrayList<String> expenseIDs = tracker.getExpenseIDs();
+                if (!expenseIDs.contains(expenseID)) {
+                    System.out.println(expenseID + " is not a valid expense ID.");
+                }
+                else {
+                    tracker.removeExpense(expenseID);
+                    System.out.println("Removed expense #" + expenseID + " successfully!");
+                }
             }
             else if (choice.equals("3")) {
                 System.out.println("======================");
                 System.out.println("|   Total Expenses   |");
                 System.out.println("======================");
 
-                tracker.displayExpenses();
-                tracker.displayTotalCost();
+                int numExpenses = tracker.getNumExpenses();
+                if (numExpenses >= 1) {
+                    tracker.displayExpenses();
+                    tracker.displayTotalCost();
+                }
+                else {
+                    System.out.println("You don't have any expenses yet");
+                    System.out.println("Add some expenses!");
+                }
+
             }
             else if (choice.equals("4")) {
                 System.out.println("===================");
                 System.out.println("|   By Category   |");
                 System.out.println("===================");
-                System.out.print("Enter category name: ");
-                String category = sc.nextLine();
+                String category = UserInput.input("Enter category name: ");
 
-                tracker.displayExpensesByCategory(category);
+                ArrayList<String> categories = tracker.getExpenseCategories();
+                if (!categories.contains(category)) {
+                    System.out.println(category + " category does not exist.");
+                }
+                else {
+                    tracker.displayExpensesByCategory(category);
+                }
             }
             else if (choice.equals("5")) {
                 System.out.println("===============");
                 System.out.println("|   By Date   |");
                 System.out.println("===============");
 
-                System.out.print("Enter start date (MM/DD/YYYY): ");
-                String startDate = sc.nextLine();
-
-                System.out.print("Enter end date (MM/DD/YYYY): ");
-                String endDate = sc.nextLine();
-
+                String startDate = UserInput.dateInput("Enter start date (MM/DD/YYYY): ");
+                String endDate = UserInput.dateInput("Enter end date (MM/DD/YYYY): ");
+            
                 tracker.displayExpensesByDateRange(startDate, endDate);
             }
             else {
@@ -104,6 +112,6 @@ public class Main {
         }
 
         // close the scanner
-        sc.close();
+        UserInput.close();
     }
 }
