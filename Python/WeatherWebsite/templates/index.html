@@ -3,9 +3,23 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weather</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <meta name="color-scheme" content="light dark">
     </head>
     <body>
         <p>Weather Report</p>
-        <p>Hello, {{ name }}</p>
+        <div class="weather-grid">
+            {% for value in data %}
+                <div class="weather-card">
+                    <p>{{ value.day }} ({{ value.date }})</p>
+                    <p>{{ value.start_time }} - {{ value.end_time }}</p>
+                    <p>{{ value.temp }}°{{ value.temp_unit }}</p>
+                    <p>{{ value.wind_speed }} {{ value.wind_direction }}</p>
+                    <p>{{ value.description }}</p>
+                    <p>Precipitation: {{ value.precipitation }}%</p>
+                    <img src={{value.icon}} alt="">
+                </div>
+            {% endfor %}
+        </div>
     </body>
 </html>
