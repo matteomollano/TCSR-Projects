@@ -4,22 +4,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weather</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <meta name="color-scheme" content="light dark">
     </head>
     <body>
-        <p>Weather Report</p>
-        <div class="weather-grid">
-            {% for value in data %}
-                <div class="weather-card">
-                    <p>{{ value.day }} ({{ value.date }})</p>
-                    <p>{{ value.start_time }} - {{ value.end_time }}</p>
-                    <p>{{ value.temp }}°{{ value.temp_unit }}</p>
-                    <p>{{ value.wind_speed }} {{ value.wind_direction }}</p>
-                    <p>{{ value.description }}</p>
-                    <p>Precipitation: {{ value.precipitation }}%</p>
-                    <img src={{value.icon}} alt="">
+        <header>
+            <h1>Weather Report</h1>
+            
+            <form method="get" action="{{ url_for('get_weather') }}">
+                <div class="label-container">
+                    <label for="city">Search for a city</label>
                 </div>
-            {% endfor %}
-        </div>
+                <div class="search-row">
+                    <input id="city" name="city" type="text" placeholder="Roslyn, New York" required>
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+
+        </header>
+
+        <section class="weather-content">
+
+            {% if error %}
+                <p class="error-message"> {{ error }} </p>
+            {% endif %}
+    
+            {% if data %}
+            <div class="weather-grid">
+                {% for period in data %}
+                    <div class="weather-card">
+                        <img src="{{ period.icon }}">
+                        <p>{{ period.temperature }}°{{ period.temperatureUnit }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- <div class="weather-card">
+                <p>{{ period.day }} ({{ period.date }})</p>
+                <p>{{ period.start_time }} - {{ period.end_time }}</p>
+                <p>{{ period.temp }}°{{ period.temp_unit }}</p>
+                <p>{{ period.wind_speed }} {{ period.wind_direction }}</p>
+                <p>{{ period.description }}</p>
+                <p>Precipitation: {{ period.precipitation }}%</p>
+                <img src="{{ period.icon }}" alt="Weather conditions">
+            </div> -->
+
+        </section>
     </body>
 </html>
