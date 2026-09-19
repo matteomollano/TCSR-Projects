@@ -1,10 +1,13 @@
 from geopy.geocoders import Nominatim
+import certifi
+import ssl
 import requests
 from datetime import datetime
 
 def get_weather_data(city):
     # get latitude and longitude using geopy
-    geolocator = Nominatim(user_agent="my-app")
+    ssl_context = ssl.create_default_context(cafile=certifi.where())
+    geolocator = Nominatim(user_agent="my-app", ssl_context=ssl_context)
     location = geolocator.geocode(city)
     
     if location is None:
@@ -29,7 +32,7 @@ def get_weather_data(city):
         print(f"Response error: {e}")
         return [], "We couldn't get the weather for this city"
     
-    return forecast_data, ""
+    return forecast_data[0:3], ""
     
     # cleaned_data = []
     # for period in forecast_data:
@@ -52,4 +55,4 @@ def get_weather_data(city):
     #         "icon": period["icon"]
     #     })
 
-    # return cleaned_data, ""
+    # return cleaned_data[0:3], ""
