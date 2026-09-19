@@ -27,4 +27,3 @@ while attempts > 0:
        
 if attempts == 0:
     print(f"Out of tries! The correct word was: {word}")
-    
