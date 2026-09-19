@@ -32,7 +32,10 @@
                 {% for period in data %}
                     <div class="weather-card">
                         <img src="{{ period.icon }}">
+                        <p>{{ period.name }}</p>
                         <p>{{ period.temperature }}°{{ period.temperatureUnit }}</p>
+                        <p>{{ period.shortForecast }}</p>
+                        <p>{{ period.detailedForecast }}</p>
                     </div>
                 {% endfor %}
             </div>
