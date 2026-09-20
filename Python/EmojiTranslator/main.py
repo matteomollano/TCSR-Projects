@@ -21,7 +21,7 @@ def find_best_emoji(word):
     best_idx = similarity.argmax().item()
     # argmax() gets the index of the maximum similarity value
     # item() is used to pull the Python integer out of the tensor object
-    
+
     best_score = similarity[best_idx].item()
     if best_score > 0.35:  # adjust as needed
         return emoji_list[best_idx][1]
@@ -40,7 +40,7 @@ def translate_sentence(sentence):
             translated.append(emoji_char)
         except:
             translated.append(word)
-    
+
     return " ".join(translated)
 
 # --- Main Program ---

@@ -10,7 +10,7 @@ try:
         print("Odd")
 except ValueError:
     print("You must enter digits only (no letters).")
-    
+
 # Question 5
 # 5. Find Highest Number
 # Create a list of numbers.

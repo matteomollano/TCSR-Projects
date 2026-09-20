@@ -41,7 +41,7 @@ string Player::getUserChoice() {
         if (validChoices.count(userChoice) > 0) {
             // Valid input
             break;
-        } 
+        }
         else {
             cout << "Invalid selection. Please choose from rock, paper, scissors, lizard, or spock." << endl << endl;
         }

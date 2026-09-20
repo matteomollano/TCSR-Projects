@@ -1,20 +1,20 @@
 class ToDoList:
-    
+
     # Constructor
     def __init__(self):
         self.tasks = []
-    
+
     # Input: a user's task
     # Function will add this task to the tasks list
     def add(self, task):
         self.tasks.append(task)
-    
+
     # Input: the id for a task (index in the list)
     # Function will remove the corresponding task from the tasks lists
     # tasks = ["do my homework", "brush my teeth", "play soccer"]
     def remove(self, task_id):
         self.tasks.pop(task_id - 1)
-        
+
     def display(self):
         length = len(self.tasks)
         if length == 0:
@@ -23,7 +23,7 @@ class ToDoList:
             for task_id in range(length):
                 print(f"{task_id + 1}. {self.tasks[task_id]}")
                 # print(str(task_id) + ". " + self.tasks[task_id]) # winston
-                       
+
 # Object
 mylist = ToDoList()
 

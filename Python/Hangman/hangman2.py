@@ -39,8 +39,8 @@ word_list = []
 for word in words:
     if len(word) == characters:
         word_list.append(word)
-       
-random_word = random.choice(word_list) 
+
+random_word = random.choice(word_list)
 # print(random_word)
 
 # create an empty word list to keep track of the user's guesses
@@ -54,7 +54,7 @@ guesses = math.ceil(len(random_word) / 2)
 
 while guesses > 0:
     print(f"You have {guesses} guesses left")
-    
+
     # get a guess from the user
     player_guess = input("Enter a letter to guess: ").lower()
     while len(player_guess) != 1 or not player_guess.isalpha() or player_guess in guessed_letters:
@@ -65,19 +65,19 @@ while guesses > 0:
     for index, char in enumerate(random_word):
         if char == player_guess:
             if empty_word[index] == "_":
-                empty_word[index] = player_guess         
-    
+                empty_word[index] = player_guess
+
     if player_guess not in random_word:
         print(f"{player_guess} was incorrect")
         guesses -= 1
-    
+
     print(f"Letters guessed: {", ".join(guessed_letters)}")
     print(" ".join(empty_word))
     print()
-    
+
     if "_" not in empty_word:
         print(f"You win! The word was {random_word}")
         break
-    
+
 if guesses == 0:
     print(f"You ran out of guesses! The word was {random_word}")

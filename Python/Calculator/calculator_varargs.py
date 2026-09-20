@@ -29,7 +29,7 @@ def divide(*nums):
         return quo
     except ZeroDivisionError:
         return "undefined"
-        
+
 sum = add(1, 2, 3, 4, 5)
 print(f"The sum is {sum}")
 

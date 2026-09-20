@@ -5,7 +5,7 @@ def caesar_cipher(text, shift, encode=True):
         direction = 1
     else:
         direction = -1 # shift backwards (decode)
-        
+
     for char in text:
         if char.isalpha(): # if char is in the alphabet
             # Determine ASCII base for uppercase or lowercase
@@ -36,20 +36,20 @@ while True:
     print("2. Decode")
     print("3. Quit")
     choice = input("Choose an option (1-3): ")
-    
+
     if choice == "3":
         print("Thanks for playing")
         break
-    
+
     if choice not in ["1", "2"]:
         print("Please type 1, 2, or 3 only.")
         continue
-    
+
     key = int(input("Enter a secret key number (1-25): "))
     while not 1 <= key <= 25:
         print("Key must be 1-25.")
         key = int(input("Enter a secret key number (1-25): "))
-    
+
     if choice == "1":
         message = input("Enter your secret message: ")
         coded = caesar_cipher(message, key)

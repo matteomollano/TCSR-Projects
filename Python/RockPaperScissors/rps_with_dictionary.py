@@ -16,7 +16,7 @@ while True:
     user = ""
     while user not in ["rock", "paper", "scissors"]:
         user = input("Enter rock, paper, or scissors: ").lower()
-        
+
     if user == computer:
         print(f"The user and computer both chose {user}. It's a tie!")
     else:

@@ -73,8 +73,8 @@ public class Hangman {
             }
 
         }
-        
+
         sc.close();
     }
-    
+
 }

@@ -13,15 +13,15 @@ def menu():
 def check_balance():
     global balance
     print(f"Your balance is ${balance}")
-    
+
 def deposit_money():
     global balance
     amount = input("How much would you like to deposit? $")
-    
+
     while amount.isdigit() == False or amount == "0": # not a real number
         print("Enter a positive number")
         amount = input("How much would you like to deposit? $")
-    
+
     amount = int(amount)
     # balance = balance + amount
     balance += amount
@@ -29,19 +29,19 @@ def deposit_money():
 def withdraw_money():
     global balance
     amount = input("How much would you like to withdraw? $")
-    
+
     while amount.isdigit() == False or amount == "0": # not a real number
         print("Enter a positive number")
         amount = input("How much would you like to withdraw? $")
-    
+
     amount = int(amount)
-    
+
     if amount > balance:
         print("You cannot withdraw more than your balance.")
     else: # amount <= balance
         balance -= amount
-    
-    
+
+
 if __name__ == "__main__":
     print("Welcome to Python Bank!")
     while True:

@@ -1,17 +1,17 @@
 import random
 
 def main():
-    
+
     # boolean variable to determine if user has guessed the word
     guessed = False
-    
+
     # read content from words.txt and choose a random word
     with open("words.txt", "r") as file:
         word_list = file.read().split("\n")
         word_list = list(map(lambda word: word.upper(), word_list))
         word = random.choice(word_list)
         print(word)
-        
+
     # main loop
     for guess_num in range(1,7):
         guess = input(f"\nGuess {guess_num}: ").upper()
@@ -23,7 +23,7 @@ def main():
         else:
             print("Wrong")
             show_guess(guess,word)
-            
+
     # check if user has won
     if guessed:
         print("\nYou win!")
@@ -44,7 +44,7 @@ def correct_letters(guess, word):
 def misplaced_letters(guess,word,correct_letters):
     all_correct_letters = set(guess) & set(word)
     return all_correct_letters - correct_letters
-    
+
 # receives the user's guess and random word
 # returns the set of letters that the user guessed wrong
 def wrong_letters(guess,word):
@@ -65,7 +65,7 @@ def show_guess(guess,word):
     """Show the user's guess on the terminal and classify all letters.
 
     ## Example (with expected output):
-    
+
     >>> show_guess("CRANE", "SNAKE")
     Correct letters: ['A', 'E']
     Misplaced letters: ['N']
@@ -74,7 +74,7 @@ def show_guess(guess,word):
     correct_letters_set = correct_letters(guess,word)
     misplaced_letters_set = misplaced_letters(guess,word,correct_letters_set)
     wrong_letters_set = wrong_letters(guess,word)
-    
+
     print(f"Correct letters: {sorted(correct_letters_set)}")
     print(f"Misplaced letters: {sorted(misplaced_letters_set)}")
     print(f"Wrong letters: {sorted(wrong_letters_set)}")

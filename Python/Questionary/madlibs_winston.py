@@ -14,7 +14,7 @@ liquid = questionary.rawselect("Choose a liquid", ["water", "seltzer", "soda", "
 body_part = questionary.rawselect("Choose a body part", ["foot", "leg", "arm", "stomach"]).ask()
 verb2 = questionary.rawselect("Choose a verb", ["swim", "splash", "jump", "dive"]).ask()
 
-story = f"""If you are traveling in {country} and find yourself having to cross a piranha-filled river, here's how to do it {adverb1}: 
+story = f"""If you are traveling in {country} and find yourself having to cross a piranha-filled river, here's how to do it {adverb1}:
     - Piranhas are more {adjective1} during the day, so cross the river at night.
     - Avoid areas with netted {animal} traps - piranhas may be {verb_ing1} there looking to {verb1} them!
     - When {verb_ing2} the river, swim {adverb2}. You don't want to wake them up and make them {adjective2}.

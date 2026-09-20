@@ -62,7 +62,7 @@ void Computer::displayChoices() {
         }
 
         if (i < choices.size() - 1) {
-            cout << "\"" << choices[i] << "\"" << ", "; 
+            cout << "\"" << choices[i] << "\"" << ", ";
         }
         else {
             cout << "\"" << choices[i] << "\"" << "}" << endl;

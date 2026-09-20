@@ -5,7 +5,7 @@ options = ["rock", "paper", "scissors"]
 while True:
     computer = random.choice(options)
     player = input("Enter rock, paper, or scissors: ").lower()
-    
+
     while player not in options:
         print("You entered invalid input.")
         player = input("You have to enter rock, paper, or scissors: ").lower()

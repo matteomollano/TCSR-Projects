@@ -10,7 +10,7 @@ while True:
     t.left(170)
     if abs(t.pos()) < 1:
         break
-    
+
 t.end_fill()
 
 t.mainloop()

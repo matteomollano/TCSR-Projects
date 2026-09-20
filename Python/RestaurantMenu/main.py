@@ -18,7 +18,7 @@ def display_menu():
     for id, food_item in food_items.items():
         name = food_item["name"]
         price = food_item["price"]
-        
+
         # print(f"{id}. {name} - ${price:.2f}")
         print(str(id) + ". " + name + " - $" + "{:.2f}".format(price))
 
@@ -42,13 +42,13 @@ def validate_order(order):
 #         else:
 #             items[name]['price'] += price
 #             items[name]['quantity'] += 1
-    
-#     print("\n---------- RECEIPT ----------")   
+
+#     print("\n---------- RECEIPT ----------")
 #     for name, obj in items.items():
 #         price = obj['price']
 #         quantity = obj['quantity']
 #         print(str(quantity) + "x " + name + " -- ${:.2f}".format(price))
-        
+
 # calculate and display the total for the order
 def display_total(order):
     total_cost = 0
@@ -58,29 +58,29 @@ def display_total(order):
         total_cost += price
 
     print("Your total cost is", "${:.2f}".format(total_cost))
-    
+
 def create_receipt(order):
     items = {}
-    # 11223 
+    # 11223
     # char = 1
     for char in order:
         food = food_items[char]
         name = food['name']
         price = food['price']
-        
+
         if name not in items:
             # creating a new key in items
             items[name] = {'price': price, 'quantity': 1}
         else: # if the item already exists in the dictionary
             items[name]['quantity'] += 1
-    
+
     print("---------- RECEIPT ----------")
     for key, value in items.items():
         price = value['price']
         quantity = value['quantity']
         print(str(quantity) + "x", key, "->", "${:.2f}".format(price*quantity))
-        
-    
+
+
 while True:
     display_menu()
     order = input("\nPlace your order: ")
@@ -89,7 +89,7 @@ while True:
 
     create_receipt(order)
     display_total(order)
-    
+
     # 11233
     # Receipt
     # 2x Chicken Nuggets - $8.00

@@ -37,7 +37,7 @@ def display_choices(choices_list):
     print("You can do the following:")
     for i, choice in enumerate(choices_list):
         print(f"{i+1}. {choice}")
-    
+
 def get_choice():
     choice = input("What do you do? ")
     while choice not in ["1", "2", "3", "4"]:
@@ -59,7 +59,7 @@ while True:
     # get choices and responses for current room
     choices = list(current_room["choices"].keys())
     responses = list(current_room["choices"].values())
-    
+
     # only display description and choices when entering new room
     if current_room_number != last_room_number:
         description = current_room["description"]
@@ -67,10 +67,10 @@ while True:
         display_choices(choices)
         # update last room to current room
         last_room_number = current_room_number
-    
+
     # get the user's choice
     choice = get_choice()
-    
+
     # display the response to the user's choice
     response = responses[choice]
     print(response)
@@ -79,19 +79,19 @@ while True:
     if "key" in response:
         keys.append(f"{current_room_name}_key")
         displayed_already = False
-        
+
         # if before last room, switch to next room
         # if it's already last room, it's not possible to switch to next room
         if current_room_number < len(rooms) - 1:
             current_room_number += 1
             current_room_name = room_names[current_room_number]
             current_room = rooms[current_room_name]
-        
+
     if len(keys) == len(rooms):
         # you win here
         print("You were able to escape the house! Phew ...")
         break
-    
+
     if keys and current_room_number != last_room_number:
         print(f"Your keys: {keys}")
 

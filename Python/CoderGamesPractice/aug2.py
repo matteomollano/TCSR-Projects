@@ -7,12 +7,12 @@ print(random.randint(min, max))
 # Question 20.06
 for i in range(1, 11):
     print(i**2)
-    
+
 # Question 20.05
 for i in range(1, 101):
     if i % 3 != 0:
         print(i)
-        
+
 # Question 30.02
 sentence = "Simplicity is the soul of efficiency"
 lst = sentence.split()

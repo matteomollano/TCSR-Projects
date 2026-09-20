@@ -8,7 +8,7 @@ print(random_word)
 empty_word = []
 for i in range(len(random_word)):
     empty_word.append("_")
-    
+
 empty_string = " ".join(empty_word)
 print(empty_string)
 
@@ -29,12 +29,12 @@ while guesses > 0:
         if random_word[i] == guess:
             empty_word[i] = guess
             is_guessed = True
-    
+
     if is_guessed == False:
         guesses = guesses - 1
-        
+
     print(" ".join(empty_word))
-    
+
     if "_" not in empty_word:
         print("You win!")
         break

@@ -4,18 +4,18 @@ import csv
 with open("address_book.txt", "a") as file:
     writer = csv.writer(file)
     writer.writerow(["Joe", "Roslyn", "4581340584"])
-    
+
 # view
 with open("address_book.txt", "r") as file:
     reader = csv.reader(file)
     contacts = list(reader)
-    
+
     for contact in contacts:
         print(f"Name: {contact[0]}")
         print(f"Address: {contact[1]}")
         print(f"Phone: {contact[2]}")
         print("-" * 40)
-        
+
 # search
 with open("address_book.txt", "r") as file:
     search_name = input("Enter a name to search: ").lower().strip()

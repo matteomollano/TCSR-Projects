@@ -76,7 +76,7 @@ def nextTurn(snake, food):
     del snake.coordinates[-1]
     canvas.delete(snake.squares[-1])
     del snake.squares[-1]
-    
+
   if checkCollisions(snake):
     gameOver()
   else:

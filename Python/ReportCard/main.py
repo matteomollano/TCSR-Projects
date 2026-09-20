@@ -53,7 +53,7 @@ for grade in grades:
     letter_grade = get_letter_grade(grade_num)
     print(subject, grade_num, '->', letter_grade)
     total = total + grade_num
-    
+
 average = total / num_subjects
 overall_letter_grade = get_letter_grade(average)
 print('GPA:', average, '=', overall_letter_grade)

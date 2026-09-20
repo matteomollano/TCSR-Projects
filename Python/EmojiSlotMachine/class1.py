@@ -20,10 +20,10 @@ def display_spin(emoji_list):
     print("\n+------------+")
     print(f"| {emoji_list[0]}  {emoji_list[1]}  {emoji_list[2]} |")
     print("+------------+\n")
-    
+
 def get_bet(balance):
     print(f"You have {balance} coins.")
-    
+
     while True:
         bet = input("How many coins do you want to bet? ")
         if bet.isalpha():
@@ -34,11 +34,11 @@ def get_bet(balance):
             print("You must bet at least 1 coin.")
         else:
             break
-    
+
     return int(bet)
-        
-    
-    
+
+
+
 balance = 100
 show_welcome()
 

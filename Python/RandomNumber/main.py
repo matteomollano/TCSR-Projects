@@ -16,7 +16,7 @@ while num_guesses > 0:
     guess = input("Enter a 5 digit number: ")
     while len(guess) != 5 or not guess.isnumeric():
         guess = input("Please enter a valid 5 digit number only: ")
-        
+
     # check if they guessed any digits correctly
     number_str = str(number)
 
@@ -31,9 +31,9 @@ while num_guesses > 0:
             matched_number.append(guess[i])
 
     print("".join(matched_number))
-    
+
     num_guesses -= 1
-    
+
     if number_str == guess:
         print("You win!")
         break

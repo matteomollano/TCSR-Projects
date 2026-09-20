@@ -4,9 +4,9 @@ import json
 
 def get_lat_long(location_name):
     geolocator = Nominatim(user_agent="my-app")
-    
+
     location = geolocator.geocode(location_name)
-    
+
     if location:
         return location.latitude, location.longitude
     else:

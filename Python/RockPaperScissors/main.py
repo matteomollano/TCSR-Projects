@@ -24,7 +24,7 @@ while True:
         else:
             print("CPU wins with", cpu)
             print("Player chose", player)
-            
+
     play_again = input('Do you want to play again? (y/n): ').lower()
     if play_again != 'y':
         break

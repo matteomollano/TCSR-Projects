@@ -6,7 +6,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("What is your name? ");
-        String ownerName = sc.nextLine(); 
+        String ownerName = sc.nextLine();
 
         System.out.println("What would you like your pin code to be? ");
         int pin = sc.nextInt();

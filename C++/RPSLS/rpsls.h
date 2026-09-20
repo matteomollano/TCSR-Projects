@@ -17,7 +17,7 @@ class Computer {
         // getter and setter methods
         void setChoices(); // generate choices list
         vector<string> getChoices();
-        
+
         void setChoice(string randomChoice); // update choice class variable
         string getChoice();
 
@@ -47,7 +47,7 @@ class Player {
         int getWins();
 
         void updateWins();
-        string getUserChoice();       
+        string getUserChoice();
 };
 
 class Game {

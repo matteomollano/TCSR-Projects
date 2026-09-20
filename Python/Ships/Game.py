@@ -8,7 +8,7 @@ def display():
     print("The objective of the game is to guess where the ship is placed on the board.")
     print("You have 10 tries.")
     print("Good Luck!!!\n")
-    
+
 # get user choice for row
 def getUserRow(rows):
     while True:
@@ -17,7 +17,7 @@ def getUserRow(rows):
             return row_guess
         else:
             print(f"Not a valid row. Please enter a value between 0 and {rows-1}\n")
-            
+
 # get user choice for columns
 def getUserColumn(columns):
     while True:
@@ -28,44 +28,44 @@ def getUserColumn(columns):
             print(f"Not a valid column. Please enter a value between 0 and {columns-1}\n")
 
 if __name__ == "__main__":
-    
+
     display()
-    
+
     # create the board
     rows = 7
     columns = 7
     Board = Board(rows,columns)
     Board.createBoard()
-  
+
     # choose a random target position
     random_row = random.randint(0, rows-1)
     random_column = random.randint(0, columns-1)
     Board.chooseTarget(random_row,random_column)
-    
+
     # game playing loop
     numOfGuesses = 10
     guessesUsed = 0
-    
+
     for i in range(numOfGuesses):
-        
+
         # display board
         Board.displayAsTable()
         print()
-        
+
         # ask the user for a guess
         row_guess = getUserRow(rows)
         column_guess = getUserColumn(columns)
-        
+
         while Board.checkIfOpen(row_guess, column_guess) == False:
             print("Spot was already taken. Choose a different board position.")
             row_guess = getUserRow(rows)
             column_guess = getUserColumn(columns)
-        
+
         guessesUsed += 1
-        
+
         # check for a hit
         hit = Board.checkForHit(row_guess, column_guess)
-        
+
         # see if you hit the ship or not
         if hit == True:
             print("You found the ship! You Win!\n")

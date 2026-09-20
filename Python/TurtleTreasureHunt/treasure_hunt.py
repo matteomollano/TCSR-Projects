@@ -32,7 +32,7 @@ writer.write("Score: 0", align="center", font=("Arial", 30, "bold"))
 def right():
     tortoise.setheading(0)
     tortoise.forward(20)
-    
+
 def left():
     tortoise.setheading(180)
     tortoise.forward(20)
@@ -55,7 +55,7 @@ screen.onkey(down, "Down")
 
 while True:
     screen.update()
-    
+
     # for debugging
     # print(tortoise.distance(treasure))
 
@@ -63,15 +63,15 @@ while True:
     if tortoise.distance(treasure) <= 22:
         # want to move the treasure
         treasure.goto(random.randint(-250, 250), random.randint(-250, 250))
-        
+
         # randomize its color
         colors = ["lightpink", "lightblue", "magenta", "lightgreen"]
         treasure.color(random.choice(colors))
-        
+
         # randomize shape
         shapes = ["turtle", "circle", "square", "triangle"]
         treasure.shape(random.choice(shapes))
-        
+
         # update score
         score = score + 1
         writer.clear()

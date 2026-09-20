@@ -16,12 +16,12 @@ def read_contacts():
     # r = read
     with open("contacts.txt", "r") as file:
         lines = file.readlines()
-    
+
     for line in lines:
         # print(line)
         data = line.split(",")
         # print(data)
-        
+
         # index = position in list (number)
         name = data[0]
         address = data[1]
@@ -31,17 +31,17 @@ def read_contacts():
         print("Address:", address)
         print("Phone:", phone)
         print("Birthday:", birthday)
-        
+
 def search_contacts():
     search_name = input("Enter a name to search: ").strip().lower()
-    
+
     with open("contacts.txt", "r") as file:
         lines = file.readlines()
 
     for line in lines:
         data = line.split(",")
         name = data[0].strip().lower()
-        
+
         if name == search_name:
             name = data[0]
             address = data[1]

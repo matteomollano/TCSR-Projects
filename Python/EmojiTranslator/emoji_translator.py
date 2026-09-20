@@ -30,23 +30,23 @@ def find_best_emoji(word):
     # print(f"Length of similarity: {len(similarity)}")
     best_idx = similarity.argmax().item()
     # print(best_idx)
-    
+
     best_score = similarity[best_idx].item()
     if best_score > 0.40:  # adjust as needed
         return emoji_list[best_idx][0]
     else:
         return word  # fallback to the original word
-    
+
 find_best_emoji("pizza")
 
 def translate_sentence(sentence):
     words = sentence.split()
     translated = []
-    
+
     for word in words:
         emj = find_best_emoji(word)
         translated.append(emj)
-    
+
     return " ".join(translated)
 
 while True:

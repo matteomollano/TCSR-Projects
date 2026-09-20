@@ -11,7 +11,7 @@ public class Expense {
     private float amount;
     private String category;
     private LocalDate date;
-    
+
     // constructor -> initializes a new object
     public Expense(String description, float amount, String category, String date) {
         setExpenseID();

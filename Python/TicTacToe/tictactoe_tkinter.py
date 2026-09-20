@@ -11,7 +11,7 @@ count = 0
 # determine if user has won the game
 winner = False
 
-# Disable all buttons after game ends   
+# Disable all buttons after game ends
 def disableAllButtons():
     button1.config(state=DISABLED)
     button2.config(state=DISABLED)
@@ -22,7 +22,7 @@ def disableAllButtons():
     button7.config(state=DISABLED)
     button8.config(state=DISABLED)
     button9.config(state=DISABLED)
-    
+
 # Reset all buttons for new game
 def reset():
     global clicked, count, winner
@@ -38,11 +38,11 @@ def reset():
     clicked = True
     count = 0
     winner = False
-  
+
 # Button clicked function
 def button_click(button):
     global clicked, count
-    
+
     if button["text"] == " " and clicked == True:
         button["text"] = "X"
         clicked = False
@@ -55,12 +55,12 @@ def button_click(button):
         checkWin()
     else:
         messagebox.showerror("Tic Tac Toe", "That box has already been selected\nPick Another Box...")
-    
+
 # Check to see if someone won
 def checkWin():
     global winner
     char = " "
-    
+
     if button1["text"] == button2["text"] == button3["text"] and button1["text"] != " ":
         button1.config(bg="green")
         button2.config(bg="green")
@@ -69,7 +69,7 @@ def checkWin():
         char = button1["text"]
         messagebox.showinfo("Tic Tac Toe", f"{char} wins!")
         disableAllButtons()
-        
+
     elif button4["text"] == button5["text"] == button6["text"] and button4["text"] != " ":
         button4.config(bg="green")
         button5.config(bg="green")
@@ -78,7 +78,7 @@ def checkWin():
         char = button4["text"]
         messagebox.showinfo("Tic Tac Toe", f"{char} wins!")
         disableAllButtons()
-        
+
     elif button7["text"] == button8["text"] == button9["text"] and button7["text"] != " ":
         button7.config(bg="green")
         button8.config(bg="green")
@@ -87,7 +87,7 @@ def checkWin():
         char = button7["text"]
         messagebox.showinfo("Tic Tac Toe", f"{char} wins!")
         disableAllButtons()
-        
+
     elif button1["text"] == button4["text"] == button7["text"] and button1["text"] != " ":
         button1.config(bg="green")
         button4.config(bg="green")
@@ -96,7 +96,7 @@ def checkWin():
         char = button1["text"]
         messagebox.showinfo("Tic Tac Toe", f"{char} wins!")
         disableAllButtons()
-    
+
     elif button2["text"] == button5["text"] == button8["text"] and button2["text"] != " ":
         button2.config(bg="green")
         button5.config(bg="green")
@@ -105,7 +105,7 @@ def checkWin():
         char = button2["text"]
         messagebox.showinfo("Tic Tac Toe", f"{char} wins!")
         disableAllButtons()
-        
+
     elif button3["text"] == button6["text"] == button9["text"] and button3["text"] != " ":
         button3.config(bg="green")
         button6.config(bg="green")
@@ -114,7 +114,7 @@ def checkWin():
         char = button3["text"]
         messagebox.showinfo("Tic Tac Toe", f"{char} wins!")
         disableAllButtons()
-    
+
     elif button1["text"] == button5["text"] == button9["text"] and button1["text"] != " ":
         button1.config(bg="green")
         button5.config(bg="green")
@@ -123,7 +123,7 @@ def checkWin():
         char = button1["text"]
         messagebox.showinfo("Tic Tac Toe", f"{char} wins!")
         disableAllButtons()
-    
+
     elif button3["text"] == button5["text"] == button7["text"] and button3["text"] != " ":
         button3.config(bg="green")
         button5.config(bg="green")
@@ -132,7 +132,7 @@ def checkWin():
         char = button3["text"]
         messagebox.showinfo("Tic Tac Toe", f"{char} wins!")
         disableAllButtons()
-        
+
     # Check if tie
     if count == 9 and winner == False:
         messagebox.showinfo("Tic Tac Toe", "It's a draw!")
@@ -140,7 +140,7 @@ def checkWin():
 
     if winner == True:
       reset()
-        
+
 if __name__ == "__main__":
     # Build our buttons
     button1 = Button(root, text=" ", font=("Helvetica", 20), height=3, width=6, bg="Silver", command=lambda: button_click(button1))

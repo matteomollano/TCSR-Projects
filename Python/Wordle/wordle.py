@@ -5,7 +5,7 @@ with open("words.txt", "r") as file:
     all_text = file.read()
     words = all_text.split()
     random_word = random.choice(words)
-    
+
 # create a set for all correct letters guessed by the user
 all_correct_letters = set()
 guessed = False
@@ -23,22 +23,22 @@ def get_guess():
 def show_guess():
     # find the letters in common between the guess and the random word
     current_correct_letters = set(guess) & set(random_word)
-    
+
     # add these letters to the all letters set
     for letter in current_correct_letters:
         all_correct_letters.add(letter)
-       
-    # tell the user which letters they guessed correctly (for this round and all rounds) 
+
+    # tell the user which letters they guessed correctly (for this round and all rounds)
     if len(current_correct_letters) == 0:
         print("Letters guessed correctly this round:", "{}")
     else:
         print("Letters guessed correctly this round:", current_correct_letters)
-        
+
     if len(all_correct_letters) == 0:
         print("All letters guessed correctly:", "{}")
     else:
         print("All letters guessed correctly:", all_correct_letters)
-    
+
 print("-----------------------------------")
 print("\tWelcome to Wordle!")
 print("-----------------------------------")
@@ -56,6 +56,6 @@ for guess_number in range(1, 7):
         print("That's the wrong word!")
         show_guess()
     print()
-    
+
 if guessed == False:
     print("Nice try. The correct word was", random_word)

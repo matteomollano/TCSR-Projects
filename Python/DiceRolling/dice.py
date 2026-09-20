@@ -22,13 +22,13 @@ for i in range(5):
         player_score += 1
     else:
         print("You guessed incorrectly")
-        
+
     if sum == computer_guess:
         print("Computer guessed correctly")
         computer_score += 1
     else:
         print("Computer guessed incorrectly")
-        
+
 if player_score > computer_score:
     print("You win", player_score, "-", computer_score)
 elif computer_score > player_score:

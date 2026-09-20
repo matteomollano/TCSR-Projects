@@ -2,7 +2,7 @@
 for i in range(1, 100):
     if i % 8 != 0:
         print(i)
-        
+
 # Question 20.02
 sum = 0
 for i in range(10):

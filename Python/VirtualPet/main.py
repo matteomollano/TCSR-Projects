@@ -44,7 +44,7 @@ while not pet.is_game_over():
     print("3. Do nothing")
 
     choice = input("Enter 1, 2 or 3: ").strip() # "1   " -> "1"
-    
+
     while choice not in ["1", "2", "3"]:
         choice = input("Invalid choice. Please enter 1, 2, or 3 only: ").strip()
 

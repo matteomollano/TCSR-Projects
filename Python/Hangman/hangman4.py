@@ -31,5 +31,5 @@ while guesses > 0 and "_" in empty_word:
 
     if not correct_guess:
         guesses -= 1
-    
+
     print(" ".join(empty_word))

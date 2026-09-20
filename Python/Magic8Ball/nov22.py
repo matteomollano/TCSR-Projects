@@ -9,7 +9,7 @@ responses = [
     "Maybe",
     "Probably not",
     "I have no idea. Figure it out yourself.",
-    
+
     # Kind
     "Absolutely! Good things are coming your way.",
     "Yes — and I'm rooting for you!",

@@ -22,14 +22,14 @@ for i in range(random_number):
     selected_list = random.choice(word_lists)
     # choose a random word from the selected list
     random_word = random.choice(selected_list)
-    
+
     # while the random word is already in the list, choose a new word
     while random_word in sentence:
         random_word = random.choice(selected_list)
-    
+
     # add the random word to our sentence
     sentence.append(random_word)
-    
+
 # create the sentence
 print("\nOur sentence is...")
 print(' '.join(sentence))

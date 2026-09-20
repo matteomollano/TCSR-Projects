@@ -34,15 +34,15 @@ def question2():
             print(i, "Buzz")
         else:
             print(i)
-        
+
 def question3():
     """
     Ask the user for a number (for example, 5).
     Then show that number's multiplication table from 1 through 12.
-    (Example: 
+    (Example:
     5 x 1 = 5
     5 x 2 = 10
-    5 x 3 = 15 
+    5 x 3 = 15
     …)
     """
     number = int(input("Enter a number: "))

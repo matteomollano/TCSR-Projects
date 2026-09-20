@@ -1,5 +1,5 @@
-class Dog: 
-    
+class Dog:
+
     def __init__(self, name, breed, age, gender):
         self.name = name
         self.breed = breed

@@ -1,7 +1,7 @@
 import random
 
-board = ["-", "-", "-", 
-         "-", "-", "-", 
+board = ["-", "-", "-",
+         "-", "-", "-",
          "-", "-", "-"]
 
 current_player = "X"
@@ -99,7 +99,7 @@ def checkWin(board):
     print()
     print(f"The winner is {winner}")
     game_running = False
-    
+
 # switch the player
 def switchPlayer():
   global current_player
@@ -116,7 +116,7 @@ def AI(board):
       board[position] = "O"
       print(f"AI chose position {position}")
       switchPlayer()
-  
+
 # run the game
 while game_running == True:
   printBoard(board)
@@ -127,7 +127,7 @@ while game_running == True:
 
   if game_running == False:
     break
-  
+
   switchPlayer()
   ## to play vs the AI!
   print()

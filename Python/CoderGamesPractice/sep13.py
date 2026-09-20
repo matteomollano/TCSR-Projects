@@ -6,8 +6,8 @@ print(sum(numbers)/len(numbers))
 for i in range(1, 101):
     if i % 3 != 0:
         print(i)
-    
-# Question 25.01    
+
+# Question 25.01
 decimal = 1.0
 print(decimal.__class__)
 print(type(decimal))

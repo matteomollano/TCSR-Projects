@@ -1,8 +1,8 @@
 import random, time
 
 board = [
-    [" ", " ", " "], 
-    [" ", " ", " "], 
+    [" ", " ", " "],
+    [" ", " ", " "],
     [" ", " ", " "]
 ]
 
@@ -12,7 +12,7 @@ def print_board(board):
     print("1", board[0][0],"|",board[0][1],"|",board[0][2])
     print("2", board[1][0],"|",board[1][1],"|",board[1][2])
     print("3", board[2][0],"|",board[2][1],"|",board[2][2])
-    
+
 def get_position(board):
     while True:
         try:
@@ -64,7 +64,7 @@ if player == "X":
     computer = "O"
 else:
     computer = "X"
-    
+
 print_board(board)
 
 while True:
@@ -74,11 +74,11 @@ while True:
     while not board[row][col] == " ":
         print("The position is already taken.")
         row, col = get_position(board)
-        
+
     # update board with player move
     board[row][col] = player
     print_board(board)
-    
+
     # check if player won
     if check_win(board, player):
         print("Congratulations! You win!")
@@ -87,7 +87,7 @@ while True:
     # check if tie
     if check_tie(board):
         print("It's a tie!")
-    
+
     # computer move
     cpu_row = random.randint(0, 2)
     cpu_col = random.randint(0, 2)
@@ -101,7 +101,7 @@ while True:
     print("\nComputer is choosing...")
     time.sleep(1)
     print_board(board)
-    
+
     if check_win(board, computer):
         print("Computer wins. Better luck next time!")
         break

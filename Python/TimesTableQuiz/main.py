@@ -9,15 +9,15 @@ num_questions = 10
 
 for i in range(1, num_questions + 1):
     print(f"\nQuestion #{i} of {num_questions}")
-    
+
     num1 = random.randint(1, 12)
     num2 = random.randint(1, 12)
     result = num1 * num2
-    
+
     answer = input(f"What is {num1} x {num2}? ")
     if int(answer) == result:
         score += 1
-        
+
 
 percent = score / num_questions
 percent = percent * 100

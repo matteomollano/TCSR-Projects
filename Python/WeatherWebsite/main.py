@@ -11,7 +11,7 @@ def home():
 def get_weather():
     city = request.args["city"].strip()
     data, error = get_weather_data(city)
-    
+
     return render_template("index.html", data=data, city=city, error=error)
 
 

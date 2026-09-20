@@ -12,7 +12,7 @@ def question9():
         if ccn.isdigit() == False: # this means ccn contains letters
             print("Credit card number cannot contain letters. Numbers only.")
         ccn = input("Enter credit card number: ")
-    
+
     print("*" * 12 + ccn[12:16]) # string slice, sub-string
 
 def question10():
@@ -24,19 +24,19 @@ def question10():
     Hint: Use Python datetime module (Monday is 1 and Sunday is 7 in this library)
     """
     from datetime import datetime
-    
+
     year = int(input("Enter a year: "))
     month = int(input("Enter a month: "))
     day = 13
-    
+
     date = datetime(year, month, day)
     print(date)
     weekday = date.isoweekday()
-    
+
     if weekday == 5: # 5 is Friday
         return True
     else:
         return False
-    
+
 result = question10()
 print(result)
