@@ -1,0 +1,4 @@
+pip==26.2.1
+prompt-toolkit==3.0.53
+questionary==2.1.1
+wcwidth==0.8.4

@@ -21,6 +21,7 @@
 # Ignore data files
 **/*.csv
 **/*.txt
+!**/requirements.txt
 **/*.zip
 **/*.json
 **/*.jsonl
