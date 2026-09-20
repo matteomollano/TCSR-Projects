@@ -11,20 +11,20 @@ def question5():
     for i in range(10):
         numbers.append(random.randint(1, 100))
     print(numbers)
-    
+
     # x = 0
     # for number in numbers:
     #     if number > x:
     #         x = number
     # print(x)
-    
+
     # for i in range(len(numbers)):
     #     if numbers[i] > x:
     #         x = numbers[i]
     # print(x)
-    
+
     print(max(numbers))
-    
+
 def question6():
     """
     6. Swap Values
@@ -36,11 +36,11 @@ def question6():
     """
     a = 10
     b = 20
-    
+
     # c = b
     # b = a
     # a = c
-    
+
     a, b = b, a
     print(a)
     print(b)
@@ -64,7 +64,7 @@ def question7():
         else:
             letter_count[letter] = 1
     print(letter_count)
-            
+
 def question8():
     """
     8. Factorial Finder

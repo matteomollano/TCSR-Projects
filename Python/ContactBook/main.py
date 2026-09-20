@@ -38,13 +38,13 @@ def select_all():
     results = cursor.fetchall()
     for row in results:
         print(row)
-        
+
 # insert a new person
 def insert(name, address, phone, email, other):
     other_json = json.dumps(other)
     insert_query = 'INSERT INTO ContactBook (name, address, phone, email, other) VALUES (?, ?, ?, ?, ?)'
     cursor.execute(insert_query, (name, address, phone, email, other_json))
-    
+
 
 # full insert query
 name = 'Matteo'
@@ -93,14 +93,14 @@ results = cursor.fetchall()
 print("\nSelecting with like operator")
 for row in results:
     print(row)
-    
+
 
 # CRUD operations
 # - CREATE (INSERT), READ (SELECT), UPDATE, DELETE
 
 # insert operation
 # def insert(name, address, phone, email, other):
-#     insert_query = """INSERT INTO ContactBook (name, address, phone, email, other) 
+#     insert_query = """INSERT INTO ContactBook (name, address, phone, email, other)
 #                       VALUES (?, ?, ?, ?, ?);"""
 #     cursor.execute(insert_query, (name, address, phone, email, other))
 #     conn.commit()

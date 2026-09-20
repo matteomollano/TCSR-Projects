@@ -11,7 +11,7 @@ for i in range(len(items)):
 
 while True:
     choice = input("1 for new item, 2 for delete item: ")
-    
+
     if choice == "1":
         x = input("Enter a grocery item: ")
         items.append(x)
@@ -20,7 +20,7 @@ while True:
         items.pop(x-1)
     else:
         print("Invalid choice. Enter 1 or 2 only.")
-    
+
     print("Your Shopping List")
     for i in range(len(items)):
         print(str(i+1) + ".", items[i])

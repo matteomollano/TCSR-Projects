@@ -1,4 +1,4 @@
-import segno 
+import segno
 
 # basic qrcode
 qrcode = segno.make_qr("golden retriever")
@@ -19,7 +19,7 @@ img.save("images/myrotatedqrcode.png")
 # gif qrcode
 gif_qrcode = segno.make("wikipedia.org", error="h")
 gif_qrcode.to_artistic(
-    background="gifs/cute-cat.gif", 
-    target="gifs/cat_qrcode.gif", 
+    background="gifs/cute-cat.gif",
+    target="gifs/cat_qrcode.gif",
     scale=10
 )

@@ -28,33 +28,33 @@ public class UserInput {
 
     public static String dateInput(String prompt) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        
+
         while (true) {
             try {
                 System.out.print(prompt);
                 String input = sc.nextLine().strip();
-                
+
                 // split by "/" and pad each part
                 String[] parts = input.split("/");
                 if (parts.length != 3) {
                     System.out.println("Invalid date format. Please use MM/DD/YYYY.");
                     continue;
                 }
-                
+
                 // pad month and day with leading zeros, handle 2-digit years
                 int year = Integer.parseInt(parts[2]);
                 if (year < 100) {
                     year += 2000;
                 }
-                
-                String paddedDate = String.format("%02d/%02d/%04d", 
-                    Integer.parseInt(parts[0]), 
-                    Integer.parseInt(parts[1]), 
+
+                String paddedDate = String.format("%02d/%02d/%04d",
+                    Integer.parseInt(parts[0]),
+                    Integer.parseInt(parts[1]),
                     year);
-                
+
                 // validate by parsing to LocalDate
                 LocalDate.parse(paddedDate, formatter);
-                
+
                 return paddedDate;
             }
             catch (Exception e) {

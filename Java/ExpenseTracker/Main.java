@@ -41,7 +41,7 @@ public class Main {
                 String expenseName = UserInput.input("Enter item description: ");
 
                 float expenseAmount = UserInput.amountInput("Enter amount: $");
-            
+
                 String expenseCategory = UserInput.input("Enter item category: ");
 
                 String expenseDate = UserInput.dateInput("Enter purchase date (MM/DD/YYYY): ");
@@ -53,7 +53,7 @@ public class Main {
                 System.out.println("===================");
                 System.out.println("|   Delete Item   |");
                 System.out.println("===================");
-                
+
                 String expenseID = UserInput.input("Enter expenseID to remove: ");
                 ArrayList<String> expenseIDs = tracker.getExpenseIDs();
                 if (!expenseIDs.contains(expenseID)) {
@@ -101,7 +101,7 @@ public class Main {
 
                 String startDate = UserInput.dateInput("Enter start date (MM/DD/YYYY): ");
                 String endDate = UserInput.dateInput("Enter end date (MM/DD/YYYY): ");
-            
+
                 tracker.displayExpensesByDateRange(startDate, endDate);
             }
             else {

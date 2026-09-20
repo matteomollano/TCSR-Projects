@@ -4,7 +4,7 @@ score = 0
 name = questionary.text("What is your name?").ask()
 
 question1 = questionary.select(
-    "What is my favorite animal", 
+    "What is my favorite animal",
     ["Dog", "Cat", "Tiger", "Bear"]
 ).ask()
 
@@ -30,18 +30,18 @@ question5 = questionary.select(
 
 if question1 == "Dog":
     score += 1
-    
+
 if question2 == "Blue":
     score += 1
 
 if question3 == "Pasta":
     score += 1
-    
+
 if question4 == "Amoeba":
     score += 1
-    
+
 if question5 == "AC Milan":
     score += 1
-    
+
 total_score = (score / 5) * 100
 print(f"Your total score is {total_score:.2f}%")

@@ -30,7 +30,7 @@ for i in range(num_guesses):
     while len(scrambled) != len(guess):
         print("Your guess must be", len(scrambled), "letters")
         guess = input("Guess the word: ")
-    
+
     # at this point, the guess is the right number of letters
     if random_word == guess:
         print("Congrats. You guessed correctly!")
@@ -48,7 +48,7 @@ for i in range(num_guesses):
             else: # letter not correct
                 feedback.append(guess[i])
         print("".join(feedback))
-    
+
     # Vivienne's solution
     # else: # if they're not equal (random_word != guess)
     #     num_guesses = num_guesses - 1
@@ -57,7 +57,7 @@ for i in range(num_guesses):
     #         print("The word was", random_word)
     #     else:
     #         print("Wrong try again")
-    
+
 if win == False:
     print("Sorry maybe next time")
     print("The word was", random_word)

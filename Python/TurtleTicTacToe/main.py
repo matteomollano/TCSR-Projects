@@ -50,11 +50,11 @@ def check_winner():
         [0, 3, 6], [1, 4, 7], [2, 5, 8], # vertical
         [0, 4, 8], [2, 4, 6]             # diagonals
     ]
-    
+
     for a, b, c in win_conditions:
         if board[a] == board[b] == board[c] and board[a] != None:
             return "Win"
-    
+
     if None not in board:
         return "Draw"
 
@@ -82,40 +82,40 @@ def restart_game(x=None, y=None):
     # hide restart button
     restart_button.clear()
     restart_button.hideturtle()
-   
+
 # --- click handler ---
 def handle_click(square):
     global current_player, game_over
-    
+
     # if square is already taken or game is over, do nothing
     if square["taken"] or game_over:
         return
-        
+
     # draw X or O in the center
     draw_symbol(square["x"], square["y"], current_player)
     square["taken"] = True
-    
+
     index = squares.index(square)
     board[index] = current_player
-    
+
     result = check_winner()
-    
+
     if result: # either Win or Draw
         game_over = True
         writer.clear()
-        
+
         if result == "Win":
             writer.write(f"{current_player} wins!", font=("Arial", 20, "bold"))
         else:
             writer.write(f"Draw", font=("Arial", 20, "bold"))
-        
+
         # show restart button
         restart_button.showturtle()
         restart_button.onclick(restart_game)
-        
+
         return
-      
-    # switch players      
+
+    # switch players
     if current_player == "X":
         current_player = "O"
         writer.clear()
@@ -133,7 +133,7 @@ for row in [150, 0, -150]: # row
         button.color("white")
         button.turtlesize(5, 5, 5)
         button.penup()
-        button.speed(0) 
+        button.speed(0)
         button.goto(col, row)
 
         # store square info
@@ -144,7 +144,7 @@ for row in [150, 0, -150]: # row
             "taken": False
         }
         squares.append(square)
-        
+
         # attach click handler
         button.onclick(lambda x, y, s=square: handle_click(s))
 

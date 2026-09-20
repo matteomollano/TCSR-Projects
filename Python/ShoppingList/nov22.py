@@ -38,6 +38,6 @@ while True:
         else:
             anything_else = input("Would you like to add or delete anything else? (Yes/No): ").lower()
             if anything_else != "yes":
-                break 
+                break
     else:
         print("Invalid. Please enter 1, 2, or 3 only.")

@@ -4,16 +4,16 @@ def normal_ai():
     print("You chose Normal AI!")
     cpu = random.choice(["rock", "paper", "scissors"])
     answer = input("Choose rock, paper, or scissors! ")
-    
+
     while answer not in ["rock", "paper", "scissors"]:
         answer = input("Enter rock, paper, or scissors as lowercase only: ")
-        
+
     win_conditions = {
         "rock": "scissors",
         "paper": "rock",
         "scissors": "paper"
     }
-    
+
     if cpu == answer:
         print(f"You tied. You both chose {cpu}")
         return False
@@ -24,7 +24,7 @@ def normal_ai():
         else:
             print(f"You lose. Computer chose {cpu}")
             return False
-    
+
 def super_ai():
     print("You chose Super AI")
     while True:
@@ -43,7 +43,7 @@ beat_normal = False
 
 while True:
     choice = int(input("Choose between Normal AI or Super AI! 1 for AI, 2 for Super AI: "))
-    
+
     if choice == 2 and not beat_normal:
         print("You must beat Normal AI first!")
     elif choice == 2 and beat_normal:

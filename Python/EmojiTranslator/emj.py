@@ -22,13 +22,13 @@ def find_best_emoji(word):
     similarities = util.cos_sim(word_embedding, emoji_embeddings)[0]
     best_idx = similarities.argmax().item()
     # print(emoji_list[best_idx])
-    
+
     best_score = similarities[best_idx].item()
     if best_score > 0.40:  # adjust as needed
         return emoji_list[best_idx]
     else:
         return word  # fallback to the original word
-    
+
 find_best_emoji("I")
 
 "I like pizza -> ['I', 'like', 'pizza']"
@@ -37,11 +37,11 @@ find_best_emoji("I")
 def translate_sentence(sentence):
     words = sentence.split()
     translated = []
-    
+
     for word in words:
         emj = find_best_emoji(word)
         translated.append(emj)
-    
+
     return " ".join(translated)
 
 while True:

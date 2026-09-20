@@ -269,7 +269,7 @@ def main():
         print("----------------------------")
         print("")
         check_for_game_over()
-    
+
     # display the grid once more after win/loss
     print_grid()
 

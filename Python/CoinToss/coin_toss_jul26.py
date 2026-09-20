@@ -2,12 +2,12 @@ import random
 
 score = 0
 
-while True: 
+while True:
     guess = input("Guess the outcome (heads or tails) or type quit to exit: ")
     faces = ["heads", "tails"]
     idx = random.randint(0, 1)
     cpu = faces[idx]
-    
+
     if guess == "quit":
         break
     elif guess not in faces:
@@ -19,5 +19,5 @@ while True:
         score += 1
     else: # guess != cpu
         print("Sorry, you guessed incorrectly. Try again next time.")
-        
+
     print(f"Your score: {score}\n")

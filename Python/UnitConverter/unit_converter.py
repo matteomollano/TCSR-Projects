@@ -6,7 +6,7 @@ def convert_temperature():
   while choice not in ["1", "2"]:
     choice = input("Invalid choice. Enter 1 or 2 only: ")
   value = float(input("Enter temperature value: "))
-  
+
   if choice == "1":
     F = value * 9/5 + 32
     print(value, "°C =", F, "°F")
@@ -21,7 +21,7 @@ def convert_weight():
   while choice not in ["1", "2"]:
     choice = input("Invalid choice. Enter 1 or 2 only: ")
   value = float(input("Enter weight value: "))
-  
+
   if choice == "1":
     pounds = value * 2.205
     print(value, "kg =", pounds, "lbs")
@@ -38,7 +38,7 @@ def convert_length():
   while choice not in ["1", "2", "3", "4"]:
     choice = input("Invalid choice. Enter 1, 2, 3, or 4 only: ")
   value = int(input("Enter value to convert: "))
-  
+
   if choice == '1':
     km = value / 1000
     print(value, "meters =", km, "kilometers")

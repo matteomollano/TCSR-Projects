@@ -7,7 +7,7 @@ def add_contact():
     address = input("Enter your address: ").strip()
     phone = input("Enter your phone number: ").strip()
     birthday = input("Enter your birthday: ").strip()
-    
+
     with open(ADDRESS_BOOK_FILE, "a") as file:
         writer = csv.writer(file)
         writer.writerow([name, address, phone, birthday])
@@ -18,7 +18,7 @@ def view_contacts():
     with open(ADDRESS_BOOK_FILE, "r") as file:
         reader = csv.reader(file)
         contacts = list(reader)
-        
+
         print("Your Contacts")
         print("-" * 40)
         for contact in contacts:
@@ -30,14 +30,14 @@ def view_contacts():
             print(f"Address: {address}")
             print(f"Phone: {phone}")
             print(f"Birthday: {birthday}")
-            print("-" * 40)     
+            print("-" * 40)
 
 def search_contacts():
     search_name = input("Enter a name to search: ").strip().lower() # "Matteo     " -> "Matteo" -> "matteo"
     with open(ADDRESS_BOOK_FILE, "r") as file:
         reader = csv.reader(file)
         contacts = list(reader)
-        
+
         found = False
         for contact in contacts:
             name = contact[0]
@@ -51,7 +51,7 @@ def search_contacts():
                 break
         if not found:
             print(f"No contact found for {search_name}")
-                
+
 def address_book_app():
     pass
 

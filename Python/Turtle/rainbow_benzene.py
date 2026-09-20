@@ -11,5 +11,5 @@ for i in range(240):
     #t.width(i//100 + 1)
     t.forward(i)
     t.left(59)
-    
+
 turtle.done()

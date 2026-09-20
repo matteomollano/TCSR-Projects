@@ -16,7 +16,7 @@ elif number == 5:
     print("Friday")
 elif number == 6:
     print("Saturday")
-    
+
 # Challenge Question 40.01
 lst = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5]
 lst = set(lst)

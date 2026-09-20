@@ -27,7 +27,7 @@ player_speed = 6
 
 def draw_player(x, y):
     pygame.draw.rect(screen, BLUE, (x, y, player_width, player_height), border_radius=6)
-    
+
 # Falling objects
 fallers = []
 faller_height = 30
@@ -50,7 +50,7 @@ def draw_fallers():
     # ]
     for f in fallers:
         pygame.draw.rect(screen, YELLOW, (f[0], f[1], faller_width, faller_height), border_radius=4)
-        
+
 def check_collision(player_x, player_y):
     player_rect = pygame.Rect(player_x, player_y, player_width, player_height)
     for f in fallers:
@@ -64,9 +64,9 @@ running = True
 
 # Game Loop
 while running:
-    
+
     clock.tick(120) # 1080 FPS
-    
+
     # Look at all events from the user (mouse, keyboard, window clicks)
     for event in pygame.event.get():
         # Check if the user clicked the window's close ("X") button
@@ -77,27 +77,27 @@ while running:
     screen.fill(BLACK)
     draw_player(player_x, player_y)
     draw_fallers()
-    
+
     # --- Move player ---
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT] and player_x > 0:
         player_x -= player_speed
     if keys[pygame.K_RIGHT] and player_x < WIDTH - player_width:
         player_x += player_speed
-        
+
     # --- Spawn fallers every 40 frames ---
     frame_count += 1
     if frame_count % SPAWN_RATE == 0:
         spawn_faller()
-    
+
     # --- Move fallers ---
     for f in fallers:
         # f[1] is y value
         f[1] += faller_speed
-    
+
     if check_collision(player_x, player_y):
         pass # finish next time
-    
+
     # Refresh the display to show changes
     pygame.display.flip()
 

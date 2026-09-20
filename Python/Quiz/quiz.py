@@ -27,7 +27,7 @@ if choice2 == 'd':
     score = score + 1
 else:
     print("You are wrong :(")
-    
+
 question3 = "\nWhat is the smartest species of ape?"
 answer3 = "a) You b) Chimpanzee c) Orangutan d) Salad with asparagus cucumber eggs celery and more"
 print(question3)
@@ -40,6 +40,6 @@ if choice3 == 'c':
     score = score + 1
 else:
     print("You are wrong :(")
-    
+
 grade = (score/3) * 100
 print("\nYour grade is", grade, "%")

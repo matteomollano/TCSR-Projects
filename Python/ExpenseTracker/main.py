@@ -1,7 +1,7 @@
 import json
 
 expenses = {}
- 
+
 def add_expense():
     category = input("Enter a category: ").strip()
     if not category:
@@ -22,11 +22,11 @@ def view_expenses():
     if not expenses:
         print("No expenses recorded yet")
         return
-    
+
     total = 0
     txns = 0
     print("\n--- All Expenses ---")
-    
+
     for category, amounts in expenses.items():
         cat_total = sum(amounts)
         total += cat_total
@@ -36,14 +36,14 @@ def view_expenses():
     print(f"\n Categories: {len(expenses)}")
     print(f" Transactions: {txns}")
     print(f" Total Spent: ${total:.2f}\n")
- 
+
 def clear_expenses(confirm):
     if confirm:
         expenses.clear()
         print("All expenses cleared")
     else:
         print("Cancelled")
- 
+
 def load_from_file():
     try:
         with open("expenses.json", "r") as file:
@@ -51,12 +51,12 @@ def load_from_file():
         print("Expenses loaded from expenses.json")
     except FileNotFoundError:
         print("Error reading the file.")
- 
+
 def save_to_file():
     with open("expenses.json", "w") as file:
         json.dump(expenses, file)
     print("Expenses saved to expenses.json")
- 
+
 def main():
     while True:
         print("1. Add Expense")
@@ -66,7 +66,7 @@ def main():
         print("5. Load from File")
         print("6. Quit")
         choice = input("Enter your choice (1,2,3,4,5,6): ").strip()
-        
+
         if choice == "1":
             add_expense()
         if choice == "2":
@@ -84,5 +84,5 @@ def main():
             load_from_file()
         if choice == "6":
             quit()
-        
+
 main()

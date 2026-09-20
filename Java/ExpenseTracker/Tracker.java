@@ -96,9 +96,9 @@ public class Tracker {
         LocalDate end = LocalDate.parse(endDate, formatter);
 
         System.out.println(String.format("Displaying expenses between %s and %s:\n", startDate, endDate));
-        
+
         int expensesWithinRange = 0;
-        
+
         for (Expense e: this.expenses) {
             LocalDate expenseDate = e.getDate();
             if (!expenseDate.isBefore(start) && !expenseDate.isAfter(end)) {

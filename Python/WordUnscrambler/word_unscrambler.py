@@ -18,11 +18,11 @@ print(scrambled)
 
 while True:
     guess = input("Your guess: ").lower().strip()
-    
+
     while len(scrambled) != len(guess):
         print(f"Your guess must be {len(scrambled)} letters")
         guess = input("Your guess: ").lower().strip()
-        
+
     if random_word == guess:
         print("You guessed correctly")
         break

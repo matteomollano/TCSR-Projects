@@ -39,7 +39,7 @@ def view():
                     print("-" * 40)
     except FileNotFoundError:
         print("File not found")
-        
+
 def check_existing_entry(url):
     # Load all entries
     entries = []
@@ -49,7 +49,7 @@ def check_existing_entry(url):
                 entries.append(json.loads(line))
     except FileNotFoundError:
         pass # No file yet, we'll create it later if needed
-    
+
     existing_entry = None
     for entry in entries:
         if entry['url'] == url:
@@ -63,10 +63,10 @@ def add():
     password = input("Password: ").strip().lower()
     time = datetime.now().isoformat()
     notes = input("Notes (Optional): ")
-    
+
     encrypted_password = fer.encrypt(password.encode()).decode()
     encrypted_notes = fer.encrypt(notes.encode()).decode()
-    
+
     json_data = {
         "url": url,
         "username": username,
@@ -75,11 +75,11 @@ def add():
         "updated_at": time,
         "notes": encrypted_notes
     }
-    
+
     with open('passwords.jsonl', 'a') as f:
         f.write(json.dumps(json_data) + '\n')
     print("Password added successfully (JSON line format)!")
-    
+
 
 while True:
     mode = input("Add a new password (1), view existing passwords (2), or q to quit: ").lower().strip()
@@ -87,10 +87,10 @@ while True:
         mode = input("Invalid input. Enter 1, 2, or q only: ").lower().strip()
     if mode == "q":
         break
-    
+
     if mode == "1":
         add()
     elif mode == "2":
         view()
-        
+
     print()

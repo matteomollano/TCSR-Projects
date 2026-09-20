@@ -10,7 +10,7 @@ int main() {
 
     int numCourses = getNumCourses();
     // cout << "numCourses = " << numCourses << endl;
-    
+
     double grade;
     vector<double> grades;
     for (int i = 0; i < numCourses; i++) {
@@ -21,7 +21,7 @@ int main() {
 
     GPA gpa(numCourses, grades);
     //cout << "numCourses class variable = " << gpa.getNumCourses() << endl;
-    //cout << "grades class variable = "; 
+    //cout << "grades class variable = ";
     //displayGrades(gpa.getGrades());
     double avg = gpa.calculateGPA();
     cout << "\nYour grade point average is: " << avg << endl;
@@ -97,7 +97,7 @@ void displayGrades(vector<double> grades) {
             cout << grades[i];
         }
         else {
-            cout << grades[i] << ", "; 
+            cout << grades[i] << ", ";
         }
     }
     cout << "]" << endl;

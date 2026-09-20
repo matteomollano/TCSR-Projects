@@ -18,7 +18,7 @@ def get_bet(balance):
     print(f"Your balance is {balance}")
     while True:
         bet = input("How many coins do you want to bet? ")
-        
+
         if not bet.isdigit():
             print("Please enter a number!\n")
         elif int(bet) > balance:
@@ -40,7 +40,7 @@ def display_spin(result):
     print("\n+------------+")
     print(f"| {result[0]}  {result[1]}  {result[2]} |")
     print("+------------+\n")
-   
+
 # determine the spin result and return the winnings
 def check_win(result, bet):
     """
@@ -57,7 +57,7 @@ def check_win(result, bet):
     else:
         print("😢 No match. Better luck next time!")
         return 0
-    
+
 # update and return the new balance
 def update_balance(balance, bet, winnings):
     """Updates and returns the new balance."""
@@ -77,7 +77,7 @@ def show_game_over(balance):
     else:
         print(f"You finished with {balance} coins.")
         print(f"You lost {100 - balance} coins. Try again next time.")
-        
+
 # show welcome screen
 show_welcome()
 
@@ -87,7 +87,7 @@ while balance > 0:
 
     # spin to get 3 emojis
     result = spin()
-        
+
     # display spin result
     display_spin(result)
 

@@ -11,7 +11,7 @@ if number % 2 == 1:
     print("Odd")
 else:
     print("Even")
-    
+
 """
 2. FizzBuzz Challenge
 Count from 1 to 20.

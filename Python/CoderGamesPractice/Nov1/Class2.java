@@ -11,7 +11,7 @@ public class Class2 {
          * If it’s divisible by 5, display “Buzz”.
          * If it’s divisible by both, display “FizzBuzz”.
          * Otherwise, just show the number itself.
-         * 
+         *
          */
         for (int i = 1; i <= 20; i++) {
             if (i % 3 == 0 && i % 5 == 0) {

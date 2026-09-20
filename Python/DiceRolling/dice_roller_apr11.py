@@ -17,7 +17,7 @@ while True:
     print("CPU is rolling...")
     time.sleep(2)
     print(f"CPU rolled a {cpu}")
-    
+
     print("You are rolling...")
     time.sleep(2)
     print(f"You rolled a {player}")
@@ -28,18 +28,18 @@ while True:
         player_score += 1
     else:
         print("Tie")
-    
+
     print("Scoring...")
     time.sleep(2)
     print(f"Your score: {player_score}")
     print(f"CPU score: {cpu_score}")
-        
+
     if cpu_score == 3:
         print("\nComputer wins")
         break
-    
+
     if player_score == 3:
         print("\nYou win!")
         break
-    
+
     print()

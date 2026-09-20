@@ -3,7 +3,7 @@ import string, random
 # name is a parameter (input you pass to a function)
 def hello(name):
     print("hello", name)
-    
+
 hello("Taryn")
 
 # calculate rectangle area

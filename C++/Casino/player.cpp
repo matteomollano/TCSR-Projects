@@ -185,7 +185,7 @@ vector<int> Player::getTwoNumbers() {
         if (num2 < num1) {
             cout << "Upper bound must be greater than lower bound" << endl;
         }
-        
+
         int difference = num2 - num1;
         if (difference > 6) {
             cout << "The max range you can bet is 6 numbers. You will have to enter two new numbers." << endl << endl;
@@ -199,7 +199,7 @@ vector<int> Player::getTwoNumbers() {
             }
         }
     }
-    
+
     vector<int> nums = {num1, num2};
     return nums;
 }

@@ -11,11 +11,11 @@ def question1():
             print("The number is odd")
         elif number % 2 == 0:
             print("The number is even")
-        
+
         exit = input("Do you want to enter another number? (yes/no): ").lower().strip()
         if exit == "no":
             break
-    
+
 def question2():
     """
     2. FizzBuzz Challenge
@@ -42,7 +42,7 @@ def question3():
     3. Multiplication Table Maker
     Ask the user for a number (for example, 5).
     Then show that number's multiplication table from 1 through 12.
-    (Example: 
+    (Example:
     5 x 1 = 5
     5 x 2 = 10,
     5 x 3 = 15,
@@ -55,7 +55,7 @@ def question3():
         result = number * i
         # print(number, "x", i, "=", result)
         print(f"{number} x {i} = {result}")
-        
+
 def question4():
     """
     4. The Temperature Converter
@@ -69,6 +69,5 @@ def question4():
     number = int(input("Enter a temperature in Fahrenheit: "))
     celsius = (number - 32) * 5/9
     print(f"{number} degrees Fahrenheit = {celsius} degrees Celsius")
-    
+
 question4()
-    

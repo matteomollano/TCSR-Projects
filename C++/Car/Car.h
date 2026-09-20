@@ -23,5 +23,5 @@ class Car {
         void setYear(int year);
 
         // other methods
-        void print();    
+        void print();
 };

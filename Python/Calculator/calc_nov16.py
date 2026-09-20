@@ -19,7 +19,7 @@ while True:
     choice = input("Do you want to add, subtract, multiply, or divide? (a, s, m, or d): ")
     num1 = int(input("Enter number 1: "))
     num2 = int(input("Enter number 2: "))
-    
+
     if choice == 'a':
         result = add(num1, num2)
         print(num1, "+", num2, "=", result)
@@ -31,4 +31,4 @@ while True:
         print(num1, "+", num2, "=", result)
     elif choice == 'd':
         result = divide(num1, num2)
-        print(num1, "/", num2, "=", result)            
+        print(num1, "/", num2, "=", result)

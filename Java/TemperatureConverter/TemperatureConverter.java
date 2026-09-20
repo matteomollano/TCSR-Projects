@@ -10,7 +10,7 @@ public class TemperatureConverter {
         unit = unit.toLowerCase();
         try {
             Double doubleValue = Double.valueOf(strValue);
-            
+
             if (unit.equals("f")) {
                 if (doubleValue < -459.67) {
                     System.out.println("Fahrenheit value cannot be below the minimum threshold (-459.67).");
@@ -31,7 +31,7 @@ public class TemperatureConverter {
                     return getValue(sc, unit);
                 }
             }
-            
+
             return doubleValue;
         }
         catch (NumberFormatException e) {

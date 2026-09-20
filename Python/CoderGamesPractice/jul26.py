@@ -8,7 +8,7 @@ for i in range(1, 101):
         print(i, "School")
     else:
         print(i)
-        
+
 # Question 60.01
 s = "python"
 new_s = ""

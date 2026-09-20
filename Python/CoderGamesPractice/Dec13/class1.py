@@ -10,5 +10,5 @@ def question9():
     # print(card[12:])
     # print(card[-4:])
     print("*" * 12 + card[-4:])
-    
+
 question9()

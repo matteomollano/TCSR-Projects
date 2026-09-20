@@ -28,7 +28,7 @@ for period in periods:
     wind_speed = period["windSpeed"]
     wind_direction = period["windDirection"]
     details = period["detailedForecast"]
-    
+
     print(f"{name} - {temp} {unit}")
     print(f"{wind_speed} {wind_direction}")
     print(details)

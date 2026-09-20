@@ -7,7 +7,7 @@ def hello(name): # function header
 # they should add the numbers together
 def add(num1, num2):
     print(num1 + num2)
-    
+
 # add(4, 9)
 
 # create a function that will compute the mean, median, mode for a list of numbers
@@ -21,10 +21,9 @@ def stats(nums):
         length += 1
     mean = total / length
     print("Mean is", mean)
-    
+
     # median
     nums_sorted = sorted(nums)
     if len(nums_sorted) % 2 == 0: # even
         first_idx = len(nums_sorted) // 2
         second_idx = first_idx + 1
-        

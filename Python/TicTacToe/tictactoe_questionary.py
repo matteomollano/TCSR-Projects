@@ -2,12 +2,12 @@ import questionary, random
 
 global board, options
 
-board = ["  ", "  ", "  ", 
-         "  ", "  ", "  ", 
+board = ["  ", "  ", "  ",
+         "  ", "  ", "  ",
          "  ", "  ", "  "]
 
-options = ["Upper Left", "Upper Middle", "Upper Right", 
-         "Middle Left", "Center", "Middle Right", 
+options = ["Upper Left", "Upper Middle", "Upper Right",
+         "Middle Left", "Center", "Middle Right",
          "Bottom Left", "Bottom Middle", "Bottom Right"]
 
 dictionary = {
@@ -36,19 +36,19 @@ def printBoard(board):
 
 def playerInput():
     choice = questionary.select(
-        "Pick a spot:", 
+        "Pick a spot:",
         options
     ).ask()
     options.remove(choice)
     return choice
-    
+
 def playerCharacter():
     playerChoice = questionary.select(
         "Choose your character:",
         characters
     ).ask()
     return playerChoice
-    
+
 def computerCharacter():
     computer = random.choice(characters)
     while computer == current_player:
@@ -58,7 +58,7 @@ def computerCharacter():
 def addToBoardPlayer(board, choice):
     index = dictionary[choice]
     board[index] = current_player
-    
+
 def getKeyFromValue(choice):
     for key, value in dictionary.items():
         if value == choice:
@@ -68,13 +68,13 @@ def addToBoardComputer(board, choice):
     option_to_remove = getKeyFromValue(choice)
     options.remove(option_to_remove)
     board[choice] = current_computer
-    
+
 def getEmptySpot(board):
     emptySpots = []
     for i in range(len(board)):
         if board[i] == "  ":
             emptySpots.append(i)
-    
+
     emptySpot = random.choice(emptySpots)
     return emptySpot
 
@@ -88,7 +88,7 @@ def checkVertical(board):
         return True
     else:
         return False
-    
+
 def checkHorizontal(board):
     if board[0] == board[1] == board[2] and board[0] != "  ":
         return True
@@ -98,7 +98,7 @@ def checkHorizontal(board):
         return True
     else:
         return False
-    
+
 def checkDiagonal(board):
     if board[0] == board[4] == board[8] and board[0] != "  ":
         return True
@@ -106,7 +106,7 @@ def checkDiagonal(board):
         return True
     else:
         return False
-    
+
 def checkWinner(board):
     if checkVertical(board):
         return True
@@ -116,7 +116,7 @@ def checkWinner(board):
         return True
     else:
         return False
-    
+
 def checkTie(board):
     if "  " not in board:
         return True
@@ -125,14 +125,14 @@ def checkTie(board):
 
 def resetBoard():
     global board, options
-    board = ["  ", "  ", "  ", 
-         "  ", "  ", "  ", 
+    board = ["  ", "  ", "  ",
+         "  ", "  ", "  ",
          "  ", "  ", "  "]
 
-    options = ["Upper Left", "Upper Middle", "Upper Right", 
-            "Middle Left", "Center", "Middle Right", 
+    options = ["Upper Left", "Upper Middle", "Upper Right",
+            "Middle Left", "Center", "Middle Right",
             "Bottom Left", "Bottom Middle", "Bottom Right"]
-    
+
 def playAgain():
     global current_player, current_computer
     print("\n")
@@ -140,7 +140,7 @@ def playAgain():
         "Do you want to play again?",
         ["Yes", "No"]
     ).ask()
-            
+
     if play_again == "Yes":
         resetBoard()
         print("Starting new game...\n")
@@ -149,7 +149,7 @@ def playAgain():
         return True
     else:
         return False
-         
+
 if __name__ == "__main__":
     current_player = playerCharacter()
     current_computer = computerCharacter()
@@ -164,13 +164,13 @@ if __name__ == "__main__":
             game_playing = playAgain()
             continue
         print("\n")
-        
+
         if checkTie(board):
             print("It's a tie")
             printBoard(board)
             game_playing = playAgain()
             continue
-        
+
         empty_spot = getEmptySpot(board)
         addToBoardComputer(board, empty_spot)
         if checkWinner(board):
@@ -179,7 +179,7 @@ if __name__ == "__main__":
             game_playing = playAgain()
         printBoard(board)
         print("\n")
-        
+
         if checkTie(board):
             print("It's a tie")
             printBoard(board)

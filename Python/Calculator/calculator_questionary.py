@@ -22,7 +22,7 @@ while True:
     sign = questionary.select(
         "Choose a sign", ["+", "-", "*", "/"]
     ).ask()
-    
+
     if sign == "+":
         answer = add(number1, number2)
         print(f"{number1} {sign} {number2} = {answer}")
@@ -35,12 +35,12 @@ while True:
     elif sign == "*":
         answer = multiply(number1, number2)
         print(f"{number1} {sign} {number2} = {answer}")
-        
+
     again = questionary.select(
         "Do you want to perform another calculation",
         ["Yes", "No"]
     ).ask()
-    
+
     if again == "No":
         break
     else:

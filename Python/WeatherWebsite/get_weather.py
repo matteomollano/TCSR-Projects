@@ -9,7 +9,7 @@ def get_weather_data(city):
     ssl_context = ssl.create_default_context(cafile=certifi.where())
     geolocator = Nominatim(user_agent="my-app", ssl_context=ssl_context)
     location = geolocator.geocode(city)
-    
+
     if location is None:
         data = []
         error = f"No location found for: {city}"
@@ -24,16 +24,16 @@ def get_weather_data(city):
         response.raise_for_status()
         point_data = response.json()
         forecast_url = point_data["properties"]["forecast"]
-        
+
         forecast_response = requests.get(forecast_url)
         forecast_response.raise_for_status()
         forecast_data = forecast_response.json()["properties"]["periods"]
     except Exception as e:
         print(f"Response error: {e}")
         return [], "We couldn't get the weather for this city"
-    
+
     return forecast_data[0:3], ""
-    
+
     # cleaned_data = []
     # for period in forecast_data:
     #     date = datetime.fromisoformat(period["startTime"]).strftime("%m/%d/%Y")

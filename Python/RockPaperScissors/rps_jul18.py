@@ -7,9 +7,9 @@ cpu_score = 0
 
 while True:
     cpu = random.choice(options)
-    
+
     player = input("Enter rock, paper, or scissors: ")
-    
+
     if player not in options:
         print("You must enter rock, paper, or scissors only.")
     else:
@@ -44,13 +44,13 @@ while True:
             elif player == "paper":
                 print("You lose")
                 cpu_score += 1
-        
+
         print("Computer", cpu_score, "-", player_score, "Player")
-        
+
         if player_score == 3:
             print("Game over. You win")
             break
-        
+
         if cpu_score == 3:
             print("Game over. You lose")
             break

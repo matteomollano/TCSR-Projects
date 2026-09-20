@@ -14,13 +14,13 @@ def mul(num1, num2):
 
 while True:
     choice = input("1 for add, 2 for subtract, 3 for multiply, 4 for divide: ")
-    
+
     while choice not in ['1', '2', '3', '4']:
         choice = input("Invalid input. You must enter 1, 2, 3, or 4 only: ")
-        
+
     a = int(input("Enter a number: "))
     b = int(input("Enter a number: "))
-    
+
     if choice == "1":
         sum = add(a, b)
         print("The sum is", sum)
@@ -33,5 +33,5 @@ while True:
     else:
         quotient = div(a, b)
         print("The quotient is", quotient)
-    
+
     print()

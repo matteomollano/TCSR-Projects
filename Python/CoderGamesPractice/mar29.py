@@ -6,7 +6,7 @@ for k, v in a.items():
     print(k, v)
 
 a = {}
-a[2] = 1 
+a[2] = 1
 a[1] = [2, 3, 4]
 # what a looks like now
 a = {2:1, 1:[2, 3, 4]}

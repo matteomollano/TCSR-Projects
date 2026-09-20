@@ -18,24 +18,24 @@ guessed = []
 
 while num_guesses > 0:
     pick_letter = input("Pick a letter: ").strip().lower()
-    
+
     if pick_letter in guessed:
         print(f"You already guessed {pick_letter}")
         continue
-    
+
     guessed.append(pick_letter)
-    
+
     if pick_letter not in random_movie:
         num_guesses -= 1
-    
+
     for i in range(len(random_movie)):
         # print(f"[{i}] if {random_movie[i]} == {pick_letter}")
         if random_movie[i] == pick_letter:
             underscores[i] = pick_letter
     print(" ".join(underscores))
-    
+
     print(f"You still have {num_guesses} guesses remaining")
-    
+
     if underscores == list(random_movie):
         print("You win!")
         break
